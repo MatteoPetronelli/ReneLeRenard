@@ -64,7 +64,7 @@ public class HeroEntity : MonoBehaviour
     [SerializeField] private HeroFallSettings _WallSlidingFallSettings;
     public HeroHorizontalMovementSettings _WallJumpHorizontalMovementSettings;
     public bool IsWallSliding => _jumpState == JumpState.Falling && IsTouchingWall && _verticalSpeed < 0;
-    private float wallJumpingDirection;
+    private float wallJumpingDirection = 1f;
     
 
     [Header("Debug")]
@@ -325,7 +325,7 @@ public class HeroEntity : MonoBehaviour
         {
             _indexJumpSetting = 1;
         }
-        if (IsTouchingWall && !IsWallSliding && (!Input.GetKey(KeyCode.Q)) && !Input.GetKey(KeyCode.D))
+        if ((IsTouchingWall && !IsWallSliding && (!Input.GetKey(KeyCode.Q)) && !Input.GetKey(KeyCode.D)))
         {
             _verticalSpeed = -_WallSlidingFallSettings.fallSpeedMax;
             _indexJumpSetting = -1;
@@ -406,6 +406,7 @@ public class HeroEntity : MonoBehaviour
         GUILayout.Label($"Is wall sliding = {IsWallSliding}");
         GUILayout.Label($"Was touching wall = {_WasTouchingWall}");
         GUILayout.Label($"Index Jump Settings = {_indexJumpSetting}");
+        GUILayout.Label($"Wall jumping direction = {wallJumpingDirection}");
         GUILayout.EndVertical();
     }
     #endregion

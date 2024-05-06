@@ -3,42 +3,41 @@ using UnityEngine;
 public class WallDetector : MonoBehaviour
 {
     [Header("Detection")]
-    [SerializeField] private Transform[] _detectionPointsLeft;
-    [SerializeField] private Transform[] _detectionPointsRight;
-    [SerializeField] private float _detectionLength = 0.1f;
+    [SerializeField] private Transform _detectionPoint;
+    [SerializeField] private float _detectionRadius = 0.1f;
     [SerializeField] private LayerMask _WallLayerMask;
+    private float radius = 0.1f;
+
+    private void Update()
+    {
+        if (radius != 0.1f)
+        {
+            Debug.Log(radius);
+        }
+    }
 
     public bool DetectWallNearBy()
     {
-        foreach (Transform detectionPoint in _detectionPointsRight)
+
+        RaycastHit2D hitResult = Physics2D.CircleCast(
+            _detectionPoint.position, 
+            _detectionRadius, 
+            Vector2.zero, 
+            0, 
+            _WallLayerMask
+            );
+
+        if (hitResult.collider != null)
         {
-            RaycastHit2D hitResult = Physics2D.Raycast(
-                    detectionPoint.position,
-                    Vector2.right,
-                    _detectionLength,
-                    _WallLayerMask
-                );
-
-            if (hitResult.collider != null)
-            {
-                return true;
-            }
+            return true;
         }
-
-        foreach (Transform detectionPoint in _detectionPointsLeft)
-        {
-            RaycastHit2D hitResult = Physics2D.Raycast(
-                    detectionPoint.position,
-                    Vector2.left,
-                    _detectionLength,
-                    _WallLayerMask
-                );
-
-            if (hitResult.collider != null)
-            {
-                return true;
-            }
-        }
+        
         return false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(_detectionPoint.position, _detectionRadius);
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6194281863145588474}
   - component: {fileID: 2932523500702912400}
   - component: {fileID: 6008612861332323023}
-  - component: {fileID: 4851319711502340903}
+  - component: {fileID: 2141728006231896547}
   m_Layer: 0
   m_Name: Hero controller
   m_TagString: Untagged
@@ -69,7 +69,7 @@ MonoBehaviour:
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &4851319711502340903
+--- !u!114 &2141728006231896547
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,15 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99525166be3a5c34581abfce4fd3deea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionPointsLeft:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _detectionPointsRight:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _detectionLength: 0.1
+  _detectionPoint: {fileID: 0}
+  _detectionRadius: 0.51
   _WallLayerMask:
     serializedVersion: 2
     m_Bits: 192

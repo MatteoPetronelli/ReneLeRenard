@@ -38,16 +38,15 @@ public class HeroController : MonoBehaviour
             _UpdateCoyoteTime();
         }
 
+        if (_entity.IsTouchingWall)
+            _entity._WasTouchingWall = true;
+        if (_entity._WasTouchingWall && _entity.IsTouchingGround)
+        {
+            _entity._WasTouchingWall = false;
+        }
+
         if (_GetInputDownJump())
         {
-            if (!_entity._WasTouchingWall || _entity.IsTouchingGround)
-                _entity._WasTouchingWall = _entity.IsTouchingWall ;
-            if (_entity.IsWallSliding && _entity._WasTouchingWall)
-                _entity._WallJumpDirection();
-            else
-            {
-                _entity.StopJumpImpulsion();
-            }
             if (_entity.IsTouchingGround || _IsCoyoteTimeActive() || _entity._indexJumpSetting >= 0)
             {
                 _entity.JumpStart();

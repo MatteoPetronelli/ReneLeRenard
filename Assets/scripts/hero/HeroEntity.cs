@@ -35,6 +35,7 @@ public class HeroEntity : MonoBehaviour
 
     [Header("Wall")]
     [SerializeField] private WallDetector _wallDetector;
+    [SerializeField] private HeroHorizontalMovementSettings _wallHorizontalMovementSettings;
     public bool IsTouchingWall { get; private set; } = false;
     public bool _WasTouchingWall = false;
 
@@ -59,13 +60,16 @@ public class HeroEntity : MonoBehaviour
     
     public int _indexJumpSetting = 2;
 
+    [Header("Wall Slide")]
+    [SerializeField] private HeroFallSettings _WallSlidingFallSettings;
+    public bool IsWallSliding => _jumpState == JumpState.Falling && IsTouchingWall && _verticalSpeed < 0 && !IsTouchingGround;
+
     [Header("Wall Jump")]
     [SerializeField] private HeroJumpSettings _WallJumpSettings;
-    [SerializeField] private HeroFallSettings _WallSlidingFallSettings;
     public HeroHorizontalMovementSettings _WallJumpHorizontalMovementSettings;
-    public bool IsWallSliding => _jumpState == JumpState.Falling && IsTouchingWall && _verticalSpeed < 0;
-    private float wallJumpingDirection = 1f;
-    
+    public float _wallJumpFallspeed = 1.5f;
+    public float _wallJumpDuration = 0.2f;
+    public bool IsWallJumping;
 
     [Header("Debug")]
     [SerializeField] private bool _guiDebug = false;
@@ -105,6 +109,10 @@ public class HeroEntity : MonoBehaviour
             _dashSettings.Duration -= Time.fixedDeltaTime;
 
         HeroHorizontalMovementSettings horizontalMovementSettings = _GetCurrentHorizontalMovementSettings();
+
+        if (_moveDirX == 0 && IsTouchingWall)
+            _horizontalSpeed = 0;
+
         if (_AreOrientAndMovementOpposite() && !_isDashing)
         {
             _TurnBack(horizontalMovementSettings);
@@ -115,7 +123,30 @@ public class HeroEntity : MonoBehaviour
             _ChangeOrientFromOrizontalMovement();
         }
 
-        if (IsJumping && _indexJumpSetting >= 0)
+        if (IsTouchingWall || IsTouchingWall)
+        {
+            IsWallJumping = false;
+            _wallJumpDuration = 0.2f;
+        }
+
+
+        if (IsWallSliding && _indexJumpSetting >= 0)
+        {
+            IsWallJumping = true;
+            if (_moveDirX == -1)
+            {
+                _rigidbody.AddForce(new Vector2(-_WallJumpHorizontalMovementSettings.speedMax, _WallJumpSettings.jumpSpeed));
+                _orientX = 1;
+            } 
+            if (_moveDirX == 1)
+            {
+                _rigidbody.AddForce(new Vector2(_WallJumpHorizontalMovementSettings.speedMax, _WallJumpSettings.jumpSpeed));
+                _orientX = -1;
+            }
+        }
+        else if (_WasTouchingWall && !IsTouchingWall)
+            WallJump();
+        else if (IsJumping && _indexJumpSetting >= 0 && !IsTouchingWall)
         {
             currerntJumpSetting = _GetHeroJumpSettings(_indexJumpSetting);
             _UpdateJump(currerntJumpSetting);
@@ -131,6 +162,9 @@ public class HeroEntity : MonoBehaviour
                 _ResetVerticalSpeed();
             }
         }
+
+        if (IsWallSliding)
+            _verticalSpeed = -_WallSlidingFallSettings.fallSpeedMax;
 
         _ApplyHorizontalSpeed();
         _ApplyVerticalSpeed();
@@ -229,6 +263,7 @@ public class HeroEntity : MonoBehaviour
     {
         if (!IsWallSliding)
             _verticalSpeed -= settings.fallGravity * Time.fixedDeltaTime;
+        
         if (_verticalSpeed < -settings.fallSpeedMax)
         {
             _verticalSpeed = -settings.fallSpeedMax;
@@ -259,6 +294,18 @@ public class HeroEntity : MonoBehaviour
         IsTouchingWall = _wallDetector.DetectWallNearBy();
     }
 
+    private void WallJump()
+    {
+        _jumpTimer += Time.fixedDeltaTime;
+        if (_jumpTimer < _wallJumpDuration)
+            _verticalSpeed = _WallJumpSettings.jumpSpeed;
+        else
+        {
+            StopJumpImpulsion();
+            _verticalSpeed -= _wallJumpFallspeed + Time.fixedDeltaTime;
+        }
+    }
+
     #endregion
 
     #region Jump
@@ -283,16 +330,14 @@ public class HeroEntity : MonoBehaviour
 
     private void _UpdateJumpStateFalling()
     {
-        if (!IsTouchingGround)
-        {
-            if (!IsWallSliding)
-                _ApplyFallGravity(_jumpFallSettings);
-            else _ApplyFallGravity(_WallSlidingFallSettings);
-        }
-        else
+        if (IsTouchingGround)
         {
             _ResetVerticalSpeed();
             _jumpState = JumpState.NotJumping;
+        }
+        else
+        {
+            _ApplyFallGravity(_jumpFallSettings);
         }
     }
 
@@ -317,13 +362,15 @@ public class HeroEntity : MonoBehaviour
 
     private void _ResetJumps()
     {
+        
         if (_indexJumpSetting < 0)
             StopJumpImpulsion();
+
         if (IsTouchingGround)
             _indexJumpSetting = 2;
         if (IsWallSliding)
         {
-            _indexJumpSetting = 1;
+            _indexJumpSetting = 0;
         }
         if ((IsTouchingWall && !IsWallSliding && (!Input.GetKey(KeyCode.Q)) && !Input.GetKey(KeyCode.D)))
         {
@@ -332,19 +379,14 @@ public class HeroEntity : MonoBehaviour
         }
     }
 
-    public void _WallJumpDirection()
-    {
-        if(_orientX != wallJumpingDirection)
-            _orientX *= -1;
-    }
     #endregion
 
     #region GetSettings
     private HeroHorizontalMovementSettings _GetCurrentHorizontalMovementSettings()
     {
-        if (IsJumping)
+        if (IsJumping || IsTouchingWall)
         {
-            return _jumpHorizontalMovementSettings;
+            return IsTouchingWall && IsWallSliding ? _wallHorizontalMovementSettings : _jumpHorizontalMovementSettings;
         }
         return IsTouchingGround ? _groundHorizontalMovementsSettings : _airHorizontalMovementsSettings;
     }
@@ -372,10 +414,6 @@ public class HeroEntity : MonoBehaviour
     #region UpdateOrientVisual
     private void _UpdateOrientVisual()
     {
-        if (IsWallSliding)
-        {
-            wallJumpingDirection = -_orientX;
-        }
         Vector3 newScale = _orientVisualRoot.localScale;
         newScale.x = _orientX;
         _orientVisualRoot.localScale = newScale;
@@ -406,7 +444,6 @@ public class HeroEntity : MonoBehaviour
         GUILayout.Label($"Is wall sliding = {IsWallSliding}");
         GUILayout.Label($"Was touching wall = {_WasTouchingWall}");
         GUILayout.Label($"Index Jump Settings = {_indexJumpSetting}");
-        GUILayout.Label($"Wall jumping direction = {wallJumpingDirection}");
         GUILayout.EndVertical();
     }
     #endregion

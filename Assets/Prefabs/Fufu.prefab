@@ -289,8 +289,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.13493197, y: 0.15105645}
-  m_Size: {x: 1.2698638, y: 1.0005535}
+  m_Offset: {x: 0.30822635, y: 0.15105644}
+  m_Size: {x: 1.6164526, y: 1.0005534}
   m_Direction: 1
 --- !u!1 &5939054716129849257
 GameObject:
@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 2682952698664768407}
   m_Layer: 0
   m_Name: Fufu
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -572,6 +572,11 @@ MonoBehaviour:
   _wallJumpFallspeed: 1.5
   _wallJumpDuration: 0.2
   IsWallJumping: 0
+  _JumpPadSettings:
+    jumpSpeed: 15
+    jumpMinDuration: 0.1
+    jumpMaxDuration: 0.15
+  IsJumpingWithPad: 0
   _guiDebug: 1
 --- !u!114 &2682952698664768407
 MonoBehaviour:

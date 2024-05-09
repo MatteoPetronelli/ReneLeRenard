@@ -6,7 +6,7 @@ public class HeroEntity : MonoBehaviour
 
     #region variables
     [Header("Physics")]
-    [SerializeField] private Rigidbody2D _rigidbody;
+    public Rigidbody2D _rigidbody;
 
     [Header("Horizontal Movements")]
     [FormerlySerializedAs("_movementsSettings")]
@@ -31,7 +31,7 @@ public class HeroEntity : MonoBehaviour
 
     [Header("Ground")]
     [SerializeField] private GroundDetector _groundDetector;
-    public bool IsTouchingGround { get; private set; } = false;
+    public bool IsTouchingGround { get; set; } = false;
 
     [Header("Wall")]
     [SerializeField] private WallDetector _wallDetector;
@@ -55,7 +55,7 @@ public class HeroEntity : MonoBehaviour
     private float _jumpTimer = 0f;
     public bool IsJumping => _jumpState != JumpState.NotJumping;
     public bool IsJumpImpulsing => _jumpState == JumpState.JumpImpulsion;
-    private HeroJumpSettings currerntJumpSetting;
+    public HeroJumpSettings currerntJumpSetting;
     public bool IsJumpingMinDuration => _jumpTimer >= currerntJumpSetting.jumpMinDuration;
     
     public int _indexJumpSetting = 2;
@@ -70,6 +70,10 @@ public class HeroEntity : MonoBehaviour
     public float _wallJumpFallspeed = 1.5f;
     public float _wallJumpDuration = 0.2f;
     public bool IsWallJumping;
+
+    [Header("Platforms")]
+    [SerializeField] private HeroJumpSettings _JumpPadSettings;
+    public bool IsJumpingWithPad;
 
     [Header("Debug")]
     [SerializeField] private bool _guiDebug = false;
@@ -341,7 +345,7 @@ public class HeroEntity : MonoBehaviour
         }
     }
 
-    private void _UpdateJump(HeroJumpSettings jump)
+    public void _UpdateJump(HeroJumpSettings jump)
     {
         switch (_jumpState)
         {
@@ -399,6 +403,7 @@ public class HeroEntity : MonoBehaviour
     private HeroJumpSettings _GetHeroJumpSettings(int i)
     {
         if (IsTouchingWall || _WasTouchingWall) return _WallJumpSettings;
+        if (IsJumpingWithPad) return _JumpPadSettings;
         return _AllJumpsSettings[i];
     }
     #endregion

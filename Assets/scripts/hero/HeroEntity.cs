@@ -412,10 +412,6 @@ public class HeroEntity : MonoBehaviour
     #region Update
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            _rigidbody.AddForce(new Vector2(0f, 0.1f));
-        }
         _UpdateOrientVisual();
         _ResetJumps();
     } 

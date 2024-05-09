@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CameraTriggerTarget
   - MGround
+  - JumpPad
   layers:
   - Default
   - TransparentFX

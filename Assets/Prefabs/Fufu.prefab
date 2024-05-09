@@ -577,7 +577,7 @@ MonoBehaviour:
   _wallJumpDuration: 0.2
   IsWallJumping: 0
   _JumpPadSettings:
-    jumpSpeed: 25
+    jumpSpeed: 17
     jumpMinDuration: 0.1
     jumpMaxDuration: 0.15
   IsJumpingWithPad: 0

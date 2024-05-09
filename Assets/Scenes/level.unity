@@ -859,7 +859,7 @@ GameObject:
   - component: {fileID: 546446871}
   m_Layer: 8
   m_Name: jump pad
-  m_TagString: Untagged
+  m_TagString: JumpPad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1966,7 +1966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _profileType: 1
   _targetToFollow: {fileID: 1781553082}
-  _followOffsetX: 5
+  _followOffsetX: 4.5
   _folloxOffsetDamping: 3
   _horizontalAutoScroll: 0
   _verticalAutoScroll: 0
@@ -2061,8 +2061,8 @@ Transform:
   m_GameObject: {fileID: 1568101420}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.75, y: 14.6634, z: 0}
-  m_LocalScale: {x: 5.976209, y: 1.63191, z: 1}
+  m_LocalPosition: {x: 18.5242, y: 14.6634, z: 0}
+  m_LocalScale: {x: 8.42765, y: 1.63191, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1360627058}
@@ -2928,10 +2928,6 @@ PrefabInstance:
       propertyPath: _entity
       value: 
       objectReference: {fileID: 1781553083}
-    - target: {fileID: 6008612861332323023, guid: aec7ed3464ae4374992f6b6034e03204, type: 3}
-      propertyPath: _groundLayerMask.m_Bits
-      value: 448
-      objectReference: {fileID: 0}
     - target: {fileID: 6008612861332323023, guid: aec7ed3464ae4374992f6b6034e03204, type: 3}
       propertyPath: _detectionPoints.Array.data[0]
       value: 

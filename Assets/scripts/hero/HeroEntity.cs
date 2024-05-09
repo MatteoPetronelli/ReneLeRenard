@@ -104,6 +104,7 @@ public class HeroEntity : MonoBehaviour
         _ApplyWallDetection();
         _ApplyGroundDetection();
         _UpdateCameraFollowPosition();
+
         if (IsTouchingGround || IsTouchingWall && _dashAllowed == 0)
         {
             _dashAllowed = 1;
@@ -411,6 +412,10 @@ public class HeroEntity : MonoBehaviour
     #region Update
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            _rigidbody.AddForce(new Vector2(0f, 0.1f));
+        }
         _UpdateOrientVisual();
         _ResetJumps();
     } 
@@ -457,13 +462,11 @@ public class HeroEntity : MonoBehaviour
     private void _UpdateCameraFollowPosition()
     {
         _cameraFollowable.FollowPositionX = _rigidbody.position.x + (CameraManager.Instance._currentCameraProfile._followOffsetX * _orientX);
-        if (IsTouchingGround && !IsJumping)
-        {
-            _cameraFollowable.FollowPositionY = _rigidbody.position.y;
-        }
+        _cameraFollowable.FollowPositionY = _rigidbody.position.y;
     }
     #endregion
 
+    #region OnCollision
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("MGround"))
@@ -471,6 +474,11 @@ public class HeroEntity : MonoBehaviour
             _jumpState = JumpState.NotJumping;
             transform.parent = other.gameObject.transform.parent;
             _horizontalSpeed *= 2;
+        }
+
+        if (IsTouchingGround && !other.gameObject.CompareTag("JumpPad"))
+        {
+            IsJumpingWithPad = false;
         }
     }
 
@@ -480,5 +488,12 @@ public class HeroEntity : MonoBehaviour
         {
             transform.parent = null;
         }
-    }
+
+        if (other.gameObject.CompareTag("JumpPad"))
+        {
+            IsJumpingWithPad = false;
+            _indexJumpSetting = -1;
+        }
+    } 
+    #endregion
 }

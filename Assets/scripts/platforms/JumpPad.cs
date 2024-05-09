@@ -19,7 +19,7 @@ public class JumpPad : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             countRebootJumpSettings = 50f;
-            _entity._indexJumpSetting = 0;
+            _entity._indexJumpSetting = -1;
             _entity.JumpStart();
             _entity._UpdateJump(_entity.currerntJumpSetting);
             _entity.IsJumpingWithPad = true;

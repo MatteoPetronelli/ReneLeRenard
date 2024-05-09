@@ -68,7 +68,7 @@ MonoBehaviour:
   _detectionLength: 0.1
   _groundLayerMask:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 448
 --- !u!114 &2141728006231896547
 MonoBehaviour:
   m_ObjectHideFlags: 0

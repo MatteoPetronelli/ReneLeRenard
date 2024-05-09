@@ -461,6 +461,24 @@ public class HeroEntity : MonoBehaviour
         {
             _cameraFollowable.FollowPositionY = _rigidbody.position.y;
         }
-    } 
+    }
     #endregion
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("MGround"))
+        {
+            _jumpState = JumpState.NotJumping;
+            transform.parent = other.gameObject.transform.parent;
+            _horizontalSpeed *= 2;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("MGround"))
+        {
+            transform.parent = null;
+        }
+    }
 }

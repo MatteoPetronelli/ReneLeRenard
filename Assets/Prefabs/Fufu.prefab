@@ -556,6 +556,10 @@ MonoBehaviour:
     deceleration: 1
     turnBackFriction: 200
     speedMax: 7
+  currerntJumpSetting:
+    jumpSpeed: 10
+    jumpMinDuration: 0.1
+    jumpMaxDuration: 0.15
   _indexJumpSetting: 2
   _WallSlidingFallSettings:
     fallGravity: 10
@@ -573,7 +577,7 @@ MonoBehaviour:
   _wallJumpDuration: 0.2
   IsWallJumping: 0
   _JumpPadSettings:
-    jumpSpeed: 15
+    jumpSpeed: 25
     jumpMinDuration: 0.1
     jumpMaxDuration: 0.15
   IsJumpingWithPad: 0

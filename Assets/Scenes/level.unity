@@ -150,8 +150,8 @@ Transform:
   m_GameObject: {fileID: 71618676}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.7271, y: 10.78, z: -0.09396036}
-  m_LocalScale: {x: 2.2301, y: 22.086613, z: 1}
+  m_LocalPosition: {x: 15.5048, y: 24.32, z: -0.09396036}
+  m_LocalScale: {x: 2.2301, y: 54.436874, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 974284071}
@@ -280,8 +280,8 @@ Transform:
   m_GameObject: {fileID: 237550664}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.79199, y: 4.202442, z: -0.09396036}
-  m_LocalScale: {x: 2.2301, y: 10.961098, z: 1}
+  m_LocalPosition: {x: -10.79199, y: 11.2081, z: -0.09396036}
+  m_LocalScale: {x: 2.2301, y: 24.97267, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 974284071}
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 292807943}
   - component: {fileID: 292807944}
   - component: {fileID: 292807945}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: WallR (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -540,8 +540,8 @@ Transform:
   m_GameObject: {fileID: 321758452}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.35801, y: 4.202442, z: -0.09396036}
-  m_LocalScale: {x: 2.2301, y: 10.961098, z: 1}
+  m_LocalPosition: {x: 41.54, y: 11.466, z: -0.09396036}
+  m_LocalScale: {x: 2.2301, y: 25.452765, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 974284071}
@@ -705,7 +705,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.2427197
+  orthographic size: 15.3603735
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -730,7 +730,7 @@ Transform:
   m_GameObject: {fileID: 370207534}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.45, y: 3.03, z: -10}
+  m_LocalPosition: {x: 22.65, y: 8.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -845,7 +845,7 @@ GameObject:
   - component: {fileID: 887285338}
   - component: {fileID: 887285339}
   - component: {fileID: 887285340}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: WallL (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1088,8 +1088,8 @@ Transform:
   m_GameObject: {fileID: 906706969}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.72949046, y: -0.28085756, z: 0}
-  m_LocalScale: {x: 17.925, y: 1.9508, z: 1}
+  m_LocalPosition: {x: 15.35, y: -0.28085756, z: 0}
+  m_LocalScale: {x: 50.08424, y: 1.9508, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 974284071}
@@ -1129,6 +1129,7 @@ Transform:
   - {fileID: 321758453}
   - {fileID: 292807943}
   - {fileID: 71618677}
+  - {fileID: 1266887577}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1256281419 stripped
@@ -1158,6 +1159,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99525166be3a5c34581abfce4fd3deea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1266887576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1266887577}
+  m_Layer: 0
+  m_Name: walls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1266887577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266887576}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 974284071}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1522869285 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5060177279040936632, guid: 6af91597f19123b4ca35cccf4b347c0f, type: 3}
@@ -1500,6 +1532,10 @@ PrefabInstance:
       propertyPath: _detectionPoint
       value: 
       objectReference: {fileID: 1729483538}
+    - target: {fileID: 2141728006231896547, guid: aec7ed3464ae4374992f6b6034e03204, type: 3}
+      propertyPath: _WallLayerMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 2932523500702912400, guid: aec7ed3464ae4374992f6b6034e03204, type: 3}
       propertyPath: _entity
       value: 

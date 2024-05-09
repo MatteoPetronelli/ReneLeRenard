@@ -133,12 +133,12 @@ public class HeroEntity : MonoBehaviour
         if (IsWallSliding && _indexJumpSetting >= 0)
         {
             IsWallJumping = true;
-            if (_moveDirX == -1)
+            if (_moveDirX == -1 && _orientX == 1)
             {
                 _rigidbody.AddForce(new Vector2(-_WallJumpHorizontalMovementSettings.speedMax, _WallJumpSettings.jumpSpeed));
                 _orientX = 1;
             } 
-            if (_moveDirX == 1)
+            if (_moveDirX == 1 && _orientX == -1)
             {
                 _rigidbody.AddForce(new Vector2(_WallJumpHorizontalMovementSettings.speedMax, _WallJumpSettings.jumpSpeed));
                 _orientX = -1;

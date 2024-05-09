@@ -1532,10 +1532,6 @@ PrefabInstance:
       propertyPath: _detectionPoint
       value: 
       objectReference: {fileID: 1729483538}
-    - target: {fileID: 2141728006231896547, guid: aec7ed3464ae4374992f6b6034e03204, type: 3}
-      propertyPath: _WallLayerMask.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
     - target: {fileID: 2932523500702912400, guid: aec7ed3464ae4374992f6b6034e03204, type: 3}
       propertyPath: _entity
       value: 

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public static Enemy Instance { get; set; }
     [Header("Life")]
     [SerializeField] private float hps;
     [SerializeField] private float hpsMax = 2;
@@ -9,6 +10,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         healthBar = GetComponentInChildren<FloatingHealthBar>();
     }
 
@@ -19,8 +21,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-            TakeDamage(1f);
+        
     }
 
     public void TakeDamage(float damageAmount)
@@ -29,5 +30,10 @@ public class Enemy : MonoBehaviour
         healthBar.UpdateHealthBar(hps, hpsMax);
         if (hps <= 0)
             Destroy(gameObject);
+    }
+
+    public void ResetLife()
+    {
+        hps = hpsMax;
     }
 }

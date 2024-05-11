@@ -7,6 +7,10 @@ TagManager:
   - CameraTriggerTarget
   - MGround
   - JumpPad
+  - Death
+  - Enemy
+  - Ground
+  - Wall
   layers:
   - Default
   - TransparentFX

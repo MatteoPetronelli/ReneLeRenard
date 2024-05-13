@@ -12,7 +12,7 @@ public class attackCAC : MonoBehaviour
     private bool reload;
     private Collider2D[] victimes;
     //private Animator anim;
-    private SpriteRenderer skin;
+    public HeroEntity _entity;
 
     public static attackCAC instance;
 
@@ -25,12 +25,11 @@ public class attackCAC : MonoBehaviour
     void Start()
     {
         //anim = GetComponent<Animator>();
-        skin = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
     {
-        if (!skin.flipX)
+        if (_entity._orientX == 1f)
         {
             attackPos = transform.position + (Vector3)attackPosition;
         }

@@ -2963,7 +2963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1582621612}
   - component: {fileID: 1582621613}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Collider
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -3182,7 +3182,7 @@ PlatformEffector2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RotationalOffset: 0
-  m_UseOneWay: 1
+  m_UseOneWay: 0
   m_UseOneWayGrouping: 0
   m_SurfaceArc: 180
   m_UseSideFriction: 0
@@ -3406,14 +3406,6 @@ PrefabInstance:
       propertyPath: _groundDetector
       value: 
       objectReference: {fileID: 1256281420}
-    - target: {fileID: 6645495850872816847, guid: 6af91597f19123b4ca35cccf4b347c0f, type: 3}
-      propertyPath: m_Size.y
-      value: 0.068268776
-      objectReference: {fileID: 0}
-    - target: {fileID: 6645495850872816847, guid: 6af91597f19123b4ca35cccf4b347c0f, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.011411667
-      objectReference: {fileID: 0}
     - target: {fileID: 6771865885331362632, guid: 6af91597f19123b4ca35cccf4b347c0f, type: 3}
       propertyPath: m_Name
       value: Fufu

@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HeroLife : MonoBehaviour
 {
     [Header("Life")]
     [SerializeField] private float hps;
     [SerializeField] private float hpsMax = 7;
+    [SerializeField] private Image healthBarSprite;
     [SerializeField] FloatingHealthBar healthBar;
 
     [Header("Spawning & Respawning")]
@@ -33,14 +35,6 @@ public class HeroLife : MonoBehaviour
                 Heal(1f);
     }
 
-    public void TakeDamage(float damageAmount)
-    {
-        hps -= damageAmount;
-        healthBar.UpdateHealthBar(hps, hpsMax);
-        if (hps <= 0)
-            Destroy(gameObject);
-    }
-
     public void Heal(float amount)
     {
         if ((hps + amount) > hpsMax)
@@ -54,7 +48,7 @@ public class HeroLife : MonoBehaviour
         healthBar.UpdateHealthBar(hps, hpsMax);
     }
 
-    public void takeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (invincible) { return; }
 

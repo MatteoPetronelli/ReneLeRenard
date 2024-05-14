@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [Header("Life")]
     [SerializeField] private float hps;
     [SerializeField] private float hpsMax = 2;
+    [SerializeField] private Sprite healthBarSprite;
     [SerializeField] FloatingHealthBar healthBar;
 
     private void Awake()

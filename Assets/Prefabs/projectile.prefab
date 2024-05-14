@@ -131,10 +131,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifeTime: 0.5
-  distance: 1
+  distance: 0.3
   damage: 0.8
+  rotationAmount: -5
   whatIsSolid:
     serializedVersion: 2
-    m_Bits: 960
+    m_Bits: 1984
   rend: {fileID: 271412467720597674}
   destroyEffect: {fileID: 7505423567221288874, guid: 3712ccc63f6335c4281d6147a15b8975, type: 3}
+  _entity: {fileID: 6480041685457909243, guid: 6af91597f19123b4ca35cccf4b347c0f, type: 3}

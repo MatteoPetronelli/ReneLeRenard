@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    private int countFlip;
     public float offset;
 
     public GameObject projectile;
@@ -29,6 +30,6 @@ public class Weapon : MonoBehaviour
         else
         {
             timeReload -= Time.deltaTime;
-        }    
+        }
     }
 }

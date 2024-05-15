@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class HeroLife : MonoBehaviour
 {
     [Header("Life")]
-    [SerializeField] private float hps;
-    [SerializeField] private float hpsMax = 7;
     [SerializeField] private Image healthBarSprite;
     [SerializeField] FloatingHealthBar healthBar;
+    public float hps;
+    public float hpsMax = 7;
+    
 
     [Header("Spawning & Respawning")]
     private Vector3 spawnPosition;
@@ -24,15 +25,6 @@ public class HeroLife : MonoBehaviour
     {
         spawnPosition = transform.position;
         hps = hpsMax;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.C))
-            TakeDamage(1f);
-        if (Input.GetKeyDown(KeyCode.V))
-            if (hps != hpsMax)
-                Heal(1f);
     }
 
     public void Heal(float amount)

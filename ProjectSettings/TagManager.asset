@@ -12,6 +12,7 @@ TagManager:
   - Ground
   - Wall
   - Room
+  - InteractUI
   layers:
   - Default
   - TransparentFX

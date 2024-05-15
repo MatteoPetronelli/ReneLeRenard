@@ -697,32 +697,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01ea06159b60e8746a43d1becbcbd20c, type: 3}
---- !u!1 &232266520 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 734440141566709325, guid: 6af91597f19123b4ca35cccf4b347c0f, type: 3}
+--- !u!95 &232266523 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3618520691625384941, guid: 6af91597f19123b4ca35cccf4b347c0f, type: 3}
   m_PrefabInstance: {fileID: 1781553080}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &232266523
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232266520}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fb274c85046a0aa4ea1f7b5fc062becf, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &233766391
 GameObject:
   m_ObjectHideFlags: 0
@@ -7572,10 +7551,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5431516655337499374, guid: 6af91597f19123b4ca35cccf4b347c0f, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 6480041685457909243, guid: 6af91597f19123b4ca35cccf4b347c0f, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 232266523}
     - target: {fileID: 6480041685457909243, guid: 6af91597f19123b4ca35cccf4b347c0f, type: 3}
       propertyPath: _wallDetector
       value: 
@@ -7588,13 +7567,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fufu
       objectReference: {fileID: 0}
+    - target: {fileID: 7484141670899278488, guid: 6af91597f19123b4ca35cccf4b347c0f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.146
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 734440141566709325, guid: 6af91597f19123b4ca35cccf4b347c0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 232266523}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6af91597f19123b4ca35cccf4b347c0f, type: 3}
 --- !u!4 &1781553081 stripped
 Transform:

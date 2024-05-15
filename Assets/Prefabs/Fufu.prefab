@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2708198598825272}
   - component: {fileID: 2291467637801821567}
+  - component: {fileID: 3618520691625384941}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -116,6 +117,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3618520691625384941
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734440141566709325}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb274c85046a0aa4ea1f7b5fc062becf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1096941640360168592
 GameObject:
   m_ObjectHideFlags: 0
@@ -10466,7 +10488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10640,6 +10662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 7212136366118121974}
+  anim: {fileID: 0}
   _groundHorizontalMovementsSettings:
     acceleration: 15
     deceleration: 20
@@ -10727,10 +10750,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69275c5005533047b9227fca187b7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hps: 0
-  hpsMax: 7
   healthBarSprite: {fileID: 5431516655337499374}
   healthBar: {fileID: 3120720648130406226}
+  hps: 0
+  hpsMax: 7
 --- !u!114 &8782747668391870083
 MonoBehaviour:
   m_ObjectHideFlags: 0

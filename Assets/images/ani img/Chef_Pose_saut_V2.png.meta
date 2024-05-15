@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 310
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,154 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Chef_Pose_saut_V2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1450
+        width: 465
+        height: 598
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eb7e3393d2b1d240a87d98dafbb94e6
+      internalID: -2126953676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Pose_saut_V2_1
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1450
+        width: 465
+        height: 598
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11cd0def9a22ac646a95d16aeeecc9b7
+      internalID: -1596696268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Pose_saut_V2_2
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 1450
+        width: 465
+        height: 598
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68a00e4d13c61654fa39bd54bdb1d653
+      internalID: -1054458889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Pose_saut_V2_3
+      rect:
+        serializedVersion: 2
+        x: 1395
+        y: 1450
+        width: 465
+        height: 598
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd10e2207ae2a5c429d7a78283ae4f4a
+      internalID: -223712452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Pose_saut_V2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 852
+        width: 465
+        height: 598
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe2c033f25485a1488c4348e776d33e2
+      internalID: -1576617658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Pose_saut_V2_5
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 852
+        width: 465
+        height: 598
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca08fdd1c649c9b4ebdf777b168fcb14
+      internalID: -865566665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Pose_saut_V2_6
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 852
+        width: 465
+        height: 598
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ae3b5e40f260104383d9a8dea1a346e
+      internalID: 1303148722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +266,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Chef_Pose_saut_V2_0: -2126953676
+      Chef_Pose_saut_V2_1: -1596696268
+      Chef_Pose_saut_V2_2: -1054458889
+      Chef_Pose_saut_V2_3: -223712452
+      Chef_Pose_saut_V2_4: -1576617658
+      Chef_Pose_saut_V2_5: -865566665
+      Chef_Pose_saut_V2_6: 1303148722
+      Chef_Pose_saut_V2_7: 2026633112
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

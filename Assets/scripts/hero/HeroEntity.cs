@@ -8,6 +8,9 @@ public class HeroEntity : MonoBehaviour
     [Header("Physics")]
     public Rigidbody2D _rigidbody;
 
+    [Header("Animation")]
+    public Animator anim;
+
     [Header("Horizontal Movements")]
     [FormerlySerializedAs("_movementsSettings")]
     [SerializeField] private HeroHorizontalMovementSettings _groundHorizontalMovementsSettings;
@@ -412,10 +415,18 @@ public class HeroEntity : MonoBehaviour
     #region Update
     private void Update()
     {
+        AnimCheck();
         _UpdateOrientVisual();
         _ResetJumps();
     } 
     #endregion
+
+    private void AnimCheck()
+    {
+        anim.SetFloat("velocityX", Mathf.Abs(_horizontalSpeed));
+        anim.SetFloat("velocityY", _verticalSpeed);
+        anim.SetBool("grounded", IsTouchingGround);
+    }
 
     #region UpdateOrientVisual
     private void _UpdateOrientVisual()

@@ -13,6 +13,7 @@ TagManager:
   - Wall
   - Room
   - InteractUI
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

@@ -16,11 +16,6 @@ public class HeroLife : MonoBehaviour
     private Vector3 spawnPosition;
     private bool invincible;
 
-    private void Awake()
-    {
-        healthBar = GetComponentInChildren<FloatingHealthBar>();
-    }
-
     private void Start()
     {
         spawnPosition = transform.position;

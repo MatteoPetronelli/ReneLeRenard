@@ -5,7 +5,7 @@ public class HeroController : MonoBehaviour
 {
     [Header("Entity")]
     [SerializeField] private HeroEntity _entity;
-    private bool _entityWasTouchingGround = false;
+    public bool _entityWasTouchingGround = false;
 
     [Header("Jump Buffer")]
     [SerializeField] private float _jumpBufferDuration = 0.2f;
@@ -105,7 +105,7 @@ public class HeroController : MonoBehaviour
             inputMoveX = 1f;
         }
 
-        if(Input.GetKeyDown(KeyCode.Mouse1))
+        if(Input.GetKeyDown(KeyCode.Mouse1) || Input.GetKeyDown(KeyCode.LeftShift))
         {
             _entity._isDashing = true;
         }

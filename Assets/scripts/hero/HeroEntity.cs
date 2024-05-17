@@ -5,6 +5,9 @@ public class HeroEntity : MonoBehaviour
 {
 
     #region variables
+    [Header("HeroController")]
+    [SerializeField] private HeroController controller;
+
     [Header("Physics")]
     public Rigidbody2D _rigidbody;
 
@@ -131,7 +134,7 @@ public class HeroEntity : MonoBehaviour
             _ChangeOrientFromOrizontalMovement();
         }
 
-        if (IsTouchingWall || IsTouchingWall)
+        if (IsTouchingWall)
         {
             IsWallJumping = false;
             _wallJumpDuration = 0.2f;
@@ -154,7 +157,7 @@ public class HeroEntity : MonoBehaviour
         }
         else if (_WasTouchingWall && !IsTouchingWall)
             WallJump();
-        else if (IsJumping && _indexJumpSetting >= 0 && !IsTouchingWall)
+        else if (IsJumping && _indexJumpSetting >= 0)
         {
             currerntJumpSetting = _GetHeroJumpSettings(_indexJumpSetting);
             _UpdateJump(currerntJumpSetting);
@@ -309,6 +312,7 @@ public class HeroEntity : MonoBehaviour
             _verticalSpeed = _WallJumpSettings.jumpSpeed;
         else
         {
+
             StopJumpImpulsion();
             _verticalSpeed -= _wallJumpFallspeed + Time.fixedDeltaTime;
         }
@@ -380,8 +384,9 @@ public class HeroEntity : MonoBehaviour
         {
             _indexJumpSetting = 0;
         }
-        if ((IsTouchingWall && !IsWallSliding && (!Input.GetKey(KeyCode.Q)) && !Input.GetKey(KeyCode.D)))
+        if (controller._entityWasTouchingGround && !IsTouchingGround && IsTouchingWall && !IsWallSliding && (!Input.GetKey(KeyCode.Q)) && !Input.GetKey(KeyCode.D))
         {
+            Debug.Log("hey");
             _verticalSpeed = -_WallSlidingFallSettings.fallSpeedMax;
             _indexJumpSetting = -1;
         }

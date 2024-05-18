@@ -481,13 +481,6 @@ public class HeroEntity : MonoBehaviour
     #region OnCollision
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("MGround"))
-        {
-            _jumpState = JumpState.NotJumping;
-            transform.parent = other.gameObject.transform.parent;
-            _horizontalSpeed *= 2;
-        }
-
         if (IsTouchingGround && !other.gameObject.CompareTag("JumpPad"))
         {
             IsJumpingWithPad = false;
@@ -496,10 +489,6 @@ public class HeroEntity : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("MGround"))
-        {
-            transform.parent = null;
-        }
 
         if (other.gameObject.CompareTag("JumpPad"))
         {

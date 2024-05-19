@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761b20f83f1b7a443a9b04e18b2810cd, type: 3}
   m_Name: potato
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 723e6b9ac5686a044ba863eaf6fa87e6, type: 3}
   HealingAmount: 0
   BoostJumpAmount: 0
   type: 0

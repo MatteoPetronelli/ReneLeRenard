@@ -84,17 +84,8 @@ public class HeroEntity : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool _guiDebug = false;
 
-    // Camera  Follow
-    private CameraFollowable _cameraFollowable;
-    #endregion
+    [SerializeField] GameObject cam;
 
-    #region Awake
-    private void Awake()
-    {
-        _cameraFollowable = GetComponent<CameraFollowable>();
-        _cameraFollowable.FollowPositionX = _rigidbody.position.x;
-        _cameraFollowable.FollowPositionY = _rigidbody.position.y;
-    } 
     #endregion
 
     #region MoveDirX
@@ -103,13 +94,13 @@ public class HeroEntity : MonoBehaviour
         _moveDirX = dirX;
     } 
     #endregion
+    
 
     #region FixedUpdate
     private void FixedUpdate()
     {
         _ApplyWallDetection();
         _ApplyGroundDetection();
-        _UpdateCameraFollowPosition();
 
         if (IsTouchingGround || IsTouchingWall && _dashAllowed == 0)
         {
@@ -148,6 +139,7 @@ public class HeroEntity : MonoBehaviour
             {
                 _rigidbody.AddForce(new Vector2(-_WallJumpHorizontalMovementSettings.speedMax, _WallJumpSettings.jumpSpeed));
                 _orientX = 1;
+                
             } 
             if (_moveDirX == 1 && _orientX == -1)
             {
@@ -187,6 +179,7 @@ public class HeroEntity : MonoBehaviour
     {
         if (_moveDirX == 0f) return;
         _orientX = Mathf.Sign(_moveDirX);
+        
     }
 
     private void _Accelerate(HeroHorizontalMovementSettings settings)
@@ -423,21 +416,27 @@ public class HeroEntity : MonoBehaviour
         AnimCheck();
         _UpdateOrientVisual();
         _ResetJumps();
-    } 
+    }
     #endregion
 
+    #region ani
     private void AnimCheck()
     {
         anim.SetFloat("velocityX", Mathf.Abs(_horizontalSpeed));
         anim.SetFloat("velocityY", _verticalSpeed);
         anim.SetBool("grounded", IsTouchingGround);
-    }
+    } 
+    #endregion
 
     #region UpdateOrientVisual
     private void _UpdateOrientVisual()
     {
         Vector3 newScale = _orientVisualRoot.localScale;
         newScale.x = _orientX;
+        if (_orientX == 1)
+            cam.transform.localScale = Vector3.one;
+        else
+            cam.transform.localScale = new Vector3(-1, 1, 1);
         _orientVisualRoot.localScale = newScale;
     }
     #endregion
@@ -470,14 +469,6 @@ public class HeroEntity : MonoBehaviour
     }
     #endregion
 
-    #region Camera
-    private void _UpdateCameraFollowPosition()
-    {
-        _cameraFollowable.FollowPositionX = _rigidbody.position.x + (CameraManager.Instance._currentCameraProfile._followOffsetX * _orientX);
-        _cameraFollowable.FollowPositionY = _rigidbody.position.y;
-    }
-    #endregion
-
     #region OnCollision
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -495,6 +486,6 @@ public class HeroEntity : MonoBehaviour
             IsJumpingWithPad = false;
             _indexJumpSetting = -1;
         }
-    } 
+    }
     #endregion
 }

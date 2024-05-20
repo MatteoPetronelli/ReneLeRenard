@@ -11,7 +11,6 @@ public class attackTrigger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             anim.SetTrigger("attack");
-            weapon.attack();
         }
     }
 }

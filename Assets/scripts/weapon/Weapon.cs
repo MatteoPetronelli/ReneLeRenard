@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    private int countFlip;
     public float offset;
 
     public Animator anim;
     public GameObject projectile;
     public Transform shotPoint;
 
-    public bool isAtacking;
-
     private float timeReload;
     public float startReload;
+
+    private int count = 2;
 
     private void Update()
     {
@@ -24,23 +23,34 @@ public class Weapon : MonoBehaviour
 
         if (timeReload <= 0)
         {
-            attack();
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Attack();
+                StartCoroutine(IsAttack());
+            }
         }
         else
         {
             timeReload -= Time.deltaTime;
-            anim.SetBool("isAttacking", false);
         }
     }
 
-    public void attack()
+    public void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        anim.SetTrigger("attack");
+        Instantiate(projectile, shotPoint.position, transform.rotation);
+        timeReload = startReload;
+        count = 2;
+    }
+
+    private IEnumerator IsAttack()
+    {
+        while (count >= 0)
         {
-            anim.SetTrigger("attack");
+            yield return new WaitForSeconds(1);
+            count--;
             anim.SetBool("isAttacking", true);
-            Instantiate(projectile, shotPoint.position, transform.rotation);
-            timeReload = startReload;
         }
+        anim.SetBool("isAttacking", false);
     }
 }

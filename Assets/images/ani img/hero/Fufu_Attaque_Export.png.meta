@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3b225e4e3cd4e45439be85bbe9e5ff96
+guid: 17cd464400c9b0149a880038546cccda
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 310
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Fufu_Attaque_Export_1
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 481
+        width: 497
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d34d092de6f24874092d8fc18896c494
+      internalID: 1232096215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fufu_Attaque_Export_2
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 481
+        width: 497
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02f7a8e754079424e895f8da28530ce0
+      internalID: -158809887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fufu_Attaque_Export_3
+      rect:
+        serializedVersion: 2
+        x: 1491
+        y: 481
+        width: 497
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07d9ae0c26e44f44dbac339ddadea590
+      internalID: -1328819450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fufu_Attaque_Export_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 481
+        width: 497
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1724a053f9db6545b2f8fd141a815a4
+      internalID: -648001531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +203,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fufu_Attaque_Export_0: -648001531
+      Fufu_Attaque_Export_1: 1232096215
+      Fufu_Attaque_Export_2: -158809887
+      Fufu_Attaque_Export_3: -1328819450
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

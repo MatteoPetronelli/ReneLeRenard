@@ -7,8 +7,11 @@ public class Weapon : MonoBehaviour
     private int countFlip;
     public float offset;
 
+    public Animator anim;
     public GameObject projectile;
     public Transform shotPoint;
+
+    public bool isAtacking;
 
     private float timeReload;
     public float startReload;
@@ -21,15 +24,23 @@ public class Weapon : MonoBehaviour
 
         if (timeReload <= 0)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Instantiate(projectile, shotPoint.position, transform.rotation);
-                timeReload = startReload;
-            }
+            attack();
         }
         else
         {
             timeReload -= Time.deltaTime;
+            anim.SetBool("isAttacking", false);
+        }
+    }
+
+    public void attack()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            anim.SetTrigger("attack");
+            anim.SetBool("isAttacking", true);
+            Instantiate(projectile, shotPoint.position, transform.rotation);
+            timeReload = startReload;
         }
     }
 }

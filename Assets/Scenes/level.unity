@@ -592,7 +592,7 @@ MonoBehaviour:
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
-  m_ScreenY: 0.723
+  m_ScreenY: 0.801
   m_CameraDistance: 10
   m_DeadZoneWidth: 0.12
   m_DeadZoneHeight: 0
@@ -5683,7 +5683,7 @@ Transform:
   m_GameObject: {fileID: 489078061}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -35.8, y: -94.446205, z: -11.82}
+  m_LocalPosition: {x: -35.8, y: -93.61941, z: -11.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24983,7 +24983,7 @@ Transform:
   m_GameObject: {fileID: 1807148995}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -35.8, y: -94.446205, z: -11.82}
+  m_LocalPosition: {x: -35.8, y: -93.61941, z: -11.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29128,7 +29128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388d714407d3edd4fa8cda70360f0923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1812503005}
   control: {fileID: 1256281423}
   PauseMenuUI: {fileID: 86772945}
 --- !u!4 &2091681985

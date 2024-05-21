@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] Enemy enemy;
     [SerializeField] HeroController control;
     public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
@@ -24,7 +23,6 @@ public class PauseMenu : MonoBehaviour
 
     void Paused(){
         control.enabled = false;
-        enemy.enabled = false;
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0;
         GameIsPaused = true;
@@ -32,7 +30,6 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume(){
         control.enabled = true;
-        enemy.enabled = true;
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1;
         GameIsPaused = false;

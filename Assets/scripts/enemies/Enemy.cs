@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     public Animator ani;
     public Collider2D col;
     public SpriteRenderer sprite;
+    public GameObject drop;
+    public Transform main;
     private float alpha = 255;
     private int countBeforeDestroy = 125;
     public bool isDying;
@@ -41,7 +43,8 @@ public class Enemy : MonoBehaviour
             alpha -= 1.8f;
             sprite.color = new Color(1, 1, 1, alpha/255);
             if (countBeforeDestroy <= 0) 
-            { 
+            {
+                Instantiate(drop, transform.position, transform.rotation, main);
                 Destroy(gameObject);
             }
         }

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -137,13 +138,13 @@ public class HeroEntity : MonoBehaviour
             IsWallJumping = true;
             if (_moveDirX == -1 && _orientX == 1)
             {
-                _rigidbody.AddForce(new Vector2(-_WallJumpHorizontalMovementSettings.speedMax, _WallJumpSettings.jumpSpeed));
+                _rigidbody.AddForce(new Vector2(-_WallJumpHorizontalMovementSettings.speedMax, _WallJumpSettings.jumpSpeed), ForceMode2D.Impulse);
                 _orientX = 1;
                 
             } 
             if (_moveDirX == 1 && _orientX == -1)
             {
-                _rigidbody.AddForce(new Vector2(_WallJumpHorizontalMovementSettings.speedMax, _WallJumpSettings.jumpSpeed));
+                _rigidbody.AddForce(new Vector2(_WallJumpHorizontalMovementSettings.speedMax, _WallJumpSettings.jumpSpeed), ForceMode2D.Impulse);
                 _orientX = -1;
             }
         }
@@ -367,7 +368,8 @@ public class HeroEntity : MonoBehaviour
 
     private void _ResetJumps()
     {
-        
+        if (IsTouchingWall)
+            _verticalSpeed = -0.5f;
         if (_indexJumpSetting < 0)
             StopJumpImpulsion();
 
